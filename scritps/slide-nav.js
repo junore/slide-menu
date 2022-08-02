@@ -1,3 +1,7 @@
+const isVisibleClass = "is-visible";
+const isActiveClass = "is-active";
+
+
 function mobileMenu(){
     const pageHeader = document.querySelector(".page-header");
     const toggleMenu = pageHeader.querySelector(".toggle-menu");
@@ -8,8 +12,7 @@ function mobileMenu(){
     const subMenuWrapper2 = listWrapper2.querySelector(".sub-menu-wrapper");
     const subMenuWrapper3 = listWrapper3.querySelector(".sub-menu-wrapper");
     const backOneLevelBtns = pageHeader.querySelectorAll(".back-one-level");
-    const isVisibleClass = "is-visible";
-    const isActiveClass = "is-active";
+
     // Look for .hamburger icon
     var hamburger = document.querySelector(".hamburger");
     
@@ -66,43 +69,82 @@ function mobileMenu(){
 
 }
 
+function desktopMenu() {
+    const pageHeader = document.querySelector(".page-header");
 
+    //parent of the main menu
+    const menuWrapper = pageHeader.querySelector(".list-wrapper-main");
+    //container for the main menu
+    const menuWrapperDesktop = pageHeader.querySelector(".list-wrapper-desktop");
+    let cloneSiblingMenu = menuWrapper.cloneNode(true);
+    //copying nodes to main menu
+    menuWrapperDesktop.innerHTML = "";
+    menuWrapperDesktop.append(cloneSiblingMenu);
 
+    const level1Links = pageHeader.querySelectorAll(".level-1 > li > a");
 
+    //const listWrapper2 = pageHeader.querySelector(".sub-menu.level-2");
 
-
-// Define our viewportWidth variable
-var viewportWidth;
-
-// Set/update the viewportWidth value
-var setViewportWidth = function () {
-    viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-}
-
-const pageHeader = document.querySelector(".page-header");
-
-// Log the viewport width into the console
-var logWidth = function () {
-    if (viewportWidth > 960) {
-        
-        //parent of the main menu
-        const menuWrapper = pageHeader.querySelector(".list-wrapper-main");
-        //container for the main menu
-        const menuWrapperDesktop = pageHeader.querySelector(".list-wrapper-desktop");
-        let cloneSiblingMenu = menuWrapper.cloneNode(true);
-        menuWrapperDesktop.innerHTML = "";
-        menuWrapperDesktop.append(cloneSiblingMenu);
-    } else {
-        mobileMenu();
+    for (const level1Link of level1Links) {
+        level1Link.addEventListener("click", function (e) {
+            const siblingList = level1Link.nextElementSibling;
+            if (siblingList) {
+                e.preventDefault();
+                console.log("DESKTOP MENU");
+                this.classList.toggle(isActiveClass);
+                this.nextElementSibling.classList.toggle(isVisibleClass);
+            }
+        });
     }
+
 }
 
-// Set our initial width and log it
-setViewportWidth();
-logWidth();
 
-// On resize events, recalculate and log
-window.addEventListener('resize', function () {
-    setViewportWidth();
-    logWidth();
+
+document.addEventListener('click', function (event) {
+    if (!event.target.closest('.list-wrapper-main')) {
+        // Clicked outside the element...
+        console.log("SAIU FORAAAAA");
+        this.classList.toggle(isActiveClass);
+    }
 }, false);
+
+
+//TODO:OPTIMIZAR O RESIZE E COLOCAR UM DELAY NO EVENTO
+
+// function resizeEventMenu() {
+//     // Define our viewportWidth variable
+//     var viewportWidth;
+    
+//     // Set/update the viewportWidth value
+//     var setViewportWidth = function () {
+//         viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+//     }
+    
+//     // Log the viewport width into the console
+//     var desktopWidth = function () {
+//         if (viewportWidth > 960) {
+//             desktopMenu()
+//             //alert("desktop");
+//             console.log("desktop");
+//         } else {
+//             //alert("mobile");
+//             console.log("mobile");
+//         }
+//     }
+    
+//     // On resize events, recalculate and log
+//     window.addEventListener('resize', function () {
+//         setViewportWidth();
+//         desktopWidth();
+//     }, false);
+    
+//     // Set our initial width and log it
+//     setViewportWidth();
+//     desktopWidth();
+// }
+
+
+mobileMenu();
+desktopMenu();
+//resizeEventMenu();
