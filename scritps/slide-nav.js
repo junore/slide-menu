@@ -84,6 +84,7 @@ const pageHeader = document.querySelector(".page-header");
 // Log the viewport width into the console
 var logWidth = function () {
     if (viewportWidth > 960) {
+        
         //parent of the main menu
         const menuWrapper = pageHeader.querySelector(".list-wrapper-main");
         //container for the main menu
