@@ -212,16 +212,60 @@
 /* MEDIA QUERIES */
 /*===================================================================================================================================================*/
 
+.list-wrapper-desktop {
+    display: none;
+}
+
 
 @media only screen and (min-width: 960px) {
+    .list-wrapper-desktop {
+        display: block;
+    }
+
+    .list-wrapper-desktop  a{
+        text-decoration: none;
+    }
+
     .list-wrapper-desktop .list-wrapper-main {
         height: var(--header-height);
         padding: 0;
+        overflow-y: inherit;
     }
 
     .list-wrapper-desktop .level-1 {
         list-style: none;
         display: flex;
         margin-bottom: 0;
+        align-items: center;
+        height: 100%;
     }
+
+    .list-wrapper-desktop .level-1>li {
+        margin-bottom: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .list-wrapper-desktop .level-1>li>a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li>.sub-menu {
+        position: absolute;
+        top: 60px;
+        background: red;
+        margin: 0;
+        left: 0;
+    }
+
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li>.sub-menu.is-visible {
+        display: block;
+    }
+
 }
