@@ -19,8 +19,11 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/hamburguer.css">
+    <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- Favicon
@@ -40,6 +43,11 @@
                     <path d="M0 0.8125L3.06738 35.5996L16.8311 40.1875L30.6826 35.5996L33.75 0.8125H0ZM27.0879 12.0537H10.9336L11.2939 16.3955H26.7275L25.5322 29.4385L16.9277 31.8115V31.8379H16.8311L8.15625 29.4385L7.62891 22.7764H11.8213L12.1289 26.125L16.8311 27.3994L21.5508 26.125L22.0781 20.6582H7.40918L6.28418 7.86133H27.4746L27.0879 12.0537V12.0537Z" fill="orange" />
                 </svg>
             </a>
+
+            <section class="list-wrapper-desktop">
+
+            </section>
+
             <section class="header-bar__right">
                 <a href="" class="social" target="_blank" title="">
                     <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -59,49 +67,79 @@
             </section>
         </div>
         <div class="menu-wrapper">
-            <div class="list-wrapper">
+            <!-- FIRST LEVEL -->
+            <div class="list-wrapper list-wrapper-main">
                 <ul class="menu level-1">
                     <li>
-                        <a href="" class="nested">Categories </a>
+                        <a href="" class="nested">First level link</a>
+                        <!-- this will be append to the second level -->
                         <ul class="sub-menu level-2">
                             <li>
-                                <a href="" class="nested">Living Room </a>
-                                <ul class="sub-menu level-3">...</ul>
+                                <a href="" class="nested">Second level nested link</a>
+                                <!-- this will be append to the third level -->
+                                <ul class="sub-menu level-3">
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="">Dining Room</a>
+                                <a href="">Second level unested link</a>
                             </li>
                             
                         </ul>
                     </li>
                     <li>
-                        <a href="" class="nested">Featured Products</a>
+                        <a href="" class="nested">Another first level link</a>
                         <ul class="sub-menu level-2">
                             <li>
-                                <a href="" class="nested">Living Room </a>
-                                <ul class="sub-menu level-3">...</ul>
+                                <a href="" class="nested">Another second level nested link</a>
+                                <ul class="sub-menu level-3">
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="">Dining Room</a>
                             </li>
                         </ul>
                     </li>
-                    
                 </ul>
             </div>
+            <!-- SECOND LEVEL MOBILE -->
             <div class="list-wrapper">
                 <button type="button" class="back-one-level">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.97031 15.2797L0.220312 8.52969C0.0732656 8.38438 0 8.19219 0 8C0 7.80782 0.0732188 7.61619 0.21975 7.46985L6.96975 0.719849C7.26272 0.42688 7.73756 0.42688 8.03006 0.719849C8.32256 1.01282 8.32303 1.48766 8.03006 1.78016L2.56078 7.25H23.25C23.6625 7.25 24 7.5875 24 8C24 8.4125 23.6646 8.75 23.25 8.75H2.56078L8.03109 14.2203C8.32406 14.5133 8.32406 14.9881 8.03109 15.2806C7.73813 15.5731 7.26094 15.575 6.97031 15.2797Z" fill="white" />
                     </svg>
                     <span>Back</span>
                 </button>
                 <div class="sub-menu-wrapper"></div>
             </div>
+            <!-- THIRD LEVEL MOBILE -->
             <div class="list-wrapper">
                 <button type="button" class="back-one-level">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.97031 15.2797L0.220312 8.52969C0.0732656 8.38438 0 8.19219 0 8C0 7.80782 0.0732188 7.61619 0.21975 7.46985L6.96975 0.719849C7.26272 0.42688 7.73756 0.42688 8.03006 0.719849C8.32256 1.01282 8.32303 1.48766 8.03006 1.78016L2.56078 7.25H23.25C23.6625 7.25 24 7.5875 24 8C24 8.4125 23.6646 8.75 23.25 8.75H2.56078L8.03109 14.2203C8.32406 14.5133 8.32406 14.9881 8.03109 15.2806C7.73813 15.5731 7.26094 15.575 6.97031 15.2797Z" fill="white" />
                     </svg>
                     <span>Back</span>
                 </button>
@@ -117,7 +155,7 @@
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
         <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="#">Skeleton documentation</a>.</p>
       </div>
     </div>
   </div>
