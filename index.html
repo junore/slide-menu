@@ -13,10 +13,6 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
@@ -73,12 +69,12 @@
                     <li>
                         <a href="">Homepage</a>
                     </li>
-                    <li>
-                        <a href="" class="nested">First level link</a>
+                    <li class="menu__mega" id="menu__mega">
+                        <a href="" class="nested">Mega Menu</a>
                         <!-- this will be append to the second level -->
                         <ul class="sub-menu level-2">
                             <li>
-                                <a href="" class="nested">Second level nested link</a>
+                                <a href="#" class="nested level-2-link">Second level nested link</a>
                                 <!-- this will be append to the third level -->
                                 <ul class="sub-menu level-3">
                                     <li>
@@ -96,16 +92,8 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="">Second level unested link</a>
-                            </li>
-                            
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="" class="nested">Another first level link</a>
-                        <ul class="sub-menu level-2">
-                            <li>
-                                <a href="" class="nested">Another second level nested link</a>
+                                <a href="#" class="nested level-2-link">Other Second level nested link</a>
+                                <!-- this will be append to the third level -->
                                 <ul class="sub-menu level-3">
                                     <li>
                                         <a href="#">Third level link</a>
@@ -120,6 +108,14 @@
                                         <a href="#">Third level link</a>
                                     </li>
                                 </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="nested">Normal Dropdown</a>
+                        <ul class="sub-menu level-2">
+                            <li>
+                                <a href="">Another second level nested link</a>
                             </li>
                             <li>
                                 <a href="">Dining Room</a>
@@ -169,6 +165,11 @@
 <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script src="scritps/slide-nav.js"></script>
+<script src="scritps/tabs.js"></script>
+
+<script>
+    tabify("menu__mega");
+</script>
 
 </body>
 </html>

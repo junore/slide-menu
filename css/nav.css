@@ -3,7 +3,7 @@
     --header-bar-bg: var(--primary);
     --menu-bg: var(--primary);
     --menu-links-color: var(--white);
-
+    --sub-menu-bg: var(--primary);
     /*MISC*/
 
     --header-height: 60px;
@@ -222,7 +222,7 @@
         display: block;
     }
 
-    .list-wrapper-desktop  a{
+    .list-wrapper-desktop a {
         text-decoration: none;
     }
 
@@ -259,13 +259,41 @@
     .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li>.sub-menu {
         position: absolute;
         top: 60px;
-        background: red;
+        background: var(--sub-menu-bg);
         margin: 0;
         left: 0;
+        transform: translateY(1rem);
+        opacity: 0;
+        display: block;
+        transition: all 0.15s ease-out;
     }
 
     .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li>.sub-menu.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: translateY 0.1s ease-out;
+        transition: opacity 0.2s ease-out;
+    }
+
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li.menu__mega {
+        position: inherit;
+    }
+
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li.menu__mega>.sub-menu {
+        width: 100%;
+    }
+
+    .list-wrapper-desktop .sub-menu .level-3 {
+        display: none;
+    }
+
+    .list-wrapper-desktop .sub-menu .level-3.open {
         display: block;
     }
 
+    .list-wrapper-desktop .sub-menu.level-2.tabHead > li {
+        display: flex;
+    }
+
+    
 }

@@ -83,7 +83,7 @@ function desktopMenu() {
 
     const level1Links = pageHeader.querySelectorAll(".level-1 > li > a");
 
-    //const listWrapper2 = pageHeader.querySelector(".sub-menu.level-2");
+    
 
     for (const level1Link of level1Links) {
         level1Link.addEventListener("click", function (e) {
@@ -91,6 +91,20 @@ function desktopMenu() {
             if (siblingList) {
                 e.preventDefault();
                 console.log("DESKTOP MENU");
+                
+                const boxes = document.querySelectorAll('.sub-menu.is-visible');
+                const links = document.querySelectorAll('.menu.level-1 > li > a');
+                boxes.forEach(box => {
+                    console.log("FINALENTE");
+                    // Remove class from each element
+                    box.classList.remove('is-visible');
+                });
+                links.forEach(link => {
+                    console.log("FINALENTE");
+                    // Remove class from each element
+                    link.classList.remove('is-active');
+                });
+                
                 this.classList.toggle(isActiveClass);
                 this.nextElementSibling.classList.toggle(isVisibleClass);
             }
@@ -98,16 +112,25 @@ function desktopMenu() {
     }
 
 }
+function removeActiveMenus() {
+    document.addEventListener('click', function (event) {
+        const boxes = document.querySelectorAll('.sub-menu.level-2');
+    
+        if (!event.target.closest('.menu.level-1')) {
+            // Clicked outside the element...
+            console.log("SAIU FORAAAAA");
+            //this.classList.toggle(isActiveClass);
+            boxes.forEach(box => {
+                // Remove class from each element
+                box.classList.remove('is-visible');
+    
+                // Add class to each element
+                // box.classList.add('small');
+            });
+        }
+    }, false);
 
-
-
-document.addEventListener('click', function (event) {
-    if (!event.target.closest('.list-wrapper-main')) {
-        // Clicked outside the element...
-        console.log("SAIU FORAAAAA");
-        this.classList.toggle(isActiveClass);
-    }
-}, false);
+}
 
 
 //TODO:OPTIMIZAR O RESIZE E COLOCAR UM DELAY NO EVENTO
@@ -147,4 +170,5 @@ document.addEventListener('click', function (event) {
 
 mobileMenu();
 desktopMenu();
+removeActiveMenus()
 //resizeEventMenu();
