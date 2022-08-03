@@ -6,10 +6,10 @@ function tabify(target) {
         bodytabs = document.querySelectorAll(`#${target} .sub-menu.level-2 .sub-menu.level-3`);
 
     // (B) ADD CSS + ONCLICK TOGGLE
-    wrapper.classList.add("tabWrap");
-    header.classList.add("tabHead");
+    wrapper.classList.add("tab__wrap");
+    header.classList.add("tab__head");
     for (let i = 0; i < headtabs.length; i++) {
-        bodytabs[i].classList.add("tabBody");
+        bodytabs[i].classList.add("tab__body");
         headtabs[i].onclick = () => {
             for (let j = 0; j < headtabs.length; j++) {
                 if (i == j) {

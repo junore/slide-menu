@@ -1,0 +1,166 @@
+:root {
+    /*DERIVED VARIABLES*/
+    --page-header__bar-bg: var(--primary);
+    --menu-bg: var(--primary);
+    --menu-links-color: var(--white);
+    --sub-menu-bg: var(--primary);
+    /*MISC*/
+
+    --header-height: 60px;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+/*===================================================================================================================================================*/
+/* MEDIA QUERIES */
+/*===================================================================================================================================================*/
+
+
+@media only screen and (min-width: 960px) {
+    .list-wrapper-desktop {
+        display: block;
+    }
+
+    /*Removes underline from header links*/
+    .list-wrapper-desktop a {
+        text-decoration: none;
+    }
+
+    /*==========================================*/
+
+    /*Level 1 menu styles*/
+
+    /*Removes underline from header links*/
+    .list-wrapper-desktop .list-wrapper {
+        height: var(--header-height);
+        padding: 0;
+        overflow-y: inherit;
+    }
+
+    /*styles for the level 1 container of the menu*/
+    .list-wrapper-desktop .level-1 {
+        list-style: none;
+        display: flex;
+        margin-bottom: 0;
+        align-items: center;
+        height: 100%;
+    }
+
+    /*styles for the level 1 lists of the menu*/
+    .list-wrapper-desktop .level-1>li {
+        margin-bottom: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    /*styles for the level 1 links of the menu*/
+    .list-wrapper-desktop .level-1>li>a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+    }
+
+    /*==========================================*/
+
+    /* Style for the arrow on the menu links that have dropdown */
+    .page-header .list-wrapper-desktop a.menu__arrow {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Container for the body tabs inside the mega menu */
+    .page-header .list-wrapper-desktop a.menu__arrow::after {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDE1IDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wLjYzMTI4MSAwLjE2MDU5NkMwLjcyOTQzNyAwLjA1MzE1ODcgMC44NjM3MTggLTAuMDAwNTI4Nzc0IDAuOTk4NDY4IC0wLjAwMDUyODc3NEMxLjEyMDA2IC0wLjAwMDUyODc3NCAxLjI0MTYyIDAuMDQzNDA4NyAxLjMzNzg0IDAuMTMyMjg0TDcuNDk3MjIgNS43OTE2NkwxMy42NjA3IDAuMTMyMTU5QzEzLjg2MzggLTAuMDU1MzQxMiAxNC4xODA3IC0wLjA0MzYyMjYgMTQuMzY3MiAwLjE2MDQ3N0MxNC41NTQ3IDAuMzYzNjAyIDE0LjU0MiAwLjY3ODkxNSAxNC4zMzk0IDAuODY2NDE1TDcuODM5MzkgNi44NjY0MkM3LjY0NzAxIDcuMDQ0MTcgNy4zNTMxNCA3LjA0NDE3IDcuMTYwNjQgNi44NjY0MkwwLjY2MDYzNyAwLjg2NjQxNUMwLjQ1OTQwNiAwLjY3ODA5NiAwLjQ0Mzc4MSAwLjM2MzcyMSAwLjYzMTI4MSAwLjE2MDU5NloiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=");
+        background-repeat: no-repeat;
+        content: "";
+        width: 14px;
+        height: 7px;
+        display: block;
+        background-size: contain;
+        transform: rotate(0deg);
+        transition: transform .2s ease-in-out;
+        margin-left: 0.5rem;
+    }
+
+    /* Animation rotate to the icon when active */
+    .page-header .list-wrapper-desktop a.menu__arrow.is-active:after {
+        transform: rotate(180deg);
+        transition: transform .2s ease-in-out;
+    }
+
+    /*==========================================*/
+
+    /* menu dropdowns container */
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li>.sub-menu {
+        position: absolute;
+        top: 60px;
+        background: var(--sub-menu-bg);
+        margin: 0;
+        left: 0;
+        transform: translateY(calc(-100% - var(--header-height)));
+        opacity: 0;
+        display: block;
+        transition: translateY 0.05s ease-out;
+        transition: opacity 0s ease-out;
+        z-index: 1;
+
+    }
+
+    /* mega menu parent link */
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li>.sub-menu.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: translateY 0.1s ease-out;
+        transition: opacity 0.2s ease-out;
+    }
+
+    /* mega menu parent link */
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li.menu__mega {
+        position: inherit;
+    }
+
+    /* mega menu dropdown container */
+    .list-wrapper-desktop .list-wrapper:nth-child(1)>ul>li.menu__mega>.sub-menu {
+        width: 100%;
+        min-height: 400px;
+    }
+
+    /* hides the level 3 links to aplly the tab navigation */
+    .list-wrapper-desktop .menu__mega .level-3 {
+        display: none;
+    }
+
+    /* shows the level 3 links to aplly the tab navigation */
+    .list-wrapper-desktop .menu__mega .level-3.open {
+        display: block;
+    }
+
+    /* Links for the tabs inside the mega menu */
+    .list-wrapper-desktop .menu__mega .level-2-link {
+        max-width: 30%;
+    }
+
+    /* Container for the body tabs inside the mega menu */
+    .list-wrapper-desktop .menu__mega .level-3 {
+        left: 34%;
+        top: 0;
+        position: absolute;
+    }
+
+}
